@@ -14,20 +14,39 @@ backed by Supabase.
 
 ---
 
-## 📸 Screenshots
+## 🎥 Demo
 
-| Login                                | Home — Checked In                                        | Break in progress                                | Daily Report                                       |
-|--------------------------------------|----------------------------------------------------------|--------------------------------------------------|----------------------------------------------------|
-| ![Login](docs/screenshots/login.png) | ![Home checked in](docs/screenshots/home_checked_in.png) | ![Break](docs/screenshots/break_in_progress.png) | ![Daily report](docs/screenshots/daily_report.png) |
+Two flows actually need motion to make sense — the rest are fine as plain
+screenshots.
 
-| Monthly Report (chart)                                 | History                                  | Profile                                  | Dark mode                                    |
-|--------------------------------------------------------|------------------------------------------|------------------------------------------|----------------------------------------------|
-| ![Monthly report](docs/screenshots/monthly_report.png) | ![History](docs/screenshots/history.png) | ![Profile](docs/screenshots/profile.png) | ![Dark mode](docs/screenshots/dark_mode.png) |
+### Login & Validation
 
-> 🎥 A 10-15s screen recording of login → punch in → break → punch out → daily
-> report, converted to a GIF and placed at `docs/screenshots/demo.gif`, is the
-> single highest-impact thing you can add here — recruiters skim READMEs,
-> they rarely read them, and a moving demo is what actually gets looked at.
+Tapping login triggers the auth call and shows the validation/error state
+inline — not meaningful as a still image.
+
+![Login button tap → auth check → validation error](docs/demo/auth_validation.gif)
+
+### Daily Attendance Flow
+
+The core loop of the app, end to end: app loads ("Setting up your day...")
+→ Not Checked In → tap to punch in → tap Take Break → pick Lunch Break →
+end break → punch out.
+
+![Setting up your day → punch in → take a lunch break → punch out](docs/demo/attendance_flow.gif)
+
+### Screens
+
+| History                                                  | Daily Report                                                  | Monthly Report                                                    |
+|----------------------------------------------------------|---------------------------------------------------------------|-------------------------------------------------------------------|
+| ![Attendance history list](docs/screenshots/history.png) | ![Daily report with chart](docs/screenshots/daily_report.png) | ![Monthly report with chart](docs/screenshots/monthly_report.png) |
+
+| Profile                                         | Light theme                                      | Dark theme                                     |
+|-------------------------------------------------|--------------------------------------------------|------------------------------------------------|
+| ![Profile screen](docs/screenshots/profile.png) | ![Light theme](docs/screenshots/theme_light.png) | ![Dark theme](docs/screenshots/theme_dark.png) |
+
+> Light/dark mode is two screenshots side by side rather than a toggle GIF
+> — showing both end states next to each other gets the point across
+> without needing motion.
 
 ## ✨ Features
 
@@ -152,6 +171,4 @@ flutter run
 
 ## 📬 Contact
 
-Built by **Dipesh**. Open an issue for bugs/feature requests.
-
-______________________
+Built by **Dipesh Vaishnav**. Open an issue for bugs/feature requests.
