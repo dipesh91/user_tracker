@@ -34,7 +34,7 @@ class DailyReport extends ConsumerWidget {
             final lunchMins = int.tryParse(data?.lunchBreak ?? '0') ?? 0;
             final teaMins = int.tryParse(data?.teaBreak ?? '0') ?? 0;
             final otherMins = int.tryParse(data?.otherBreak ?? '0') ?? 0;
-            Duration? workedDuration;
+            Duration workedDuration = Duration(seconds: 0);
             if (inT != null && outT != null) {
               workedDuration =
                   outT.difference(inT) - Duration(minutes: breakMins);
@@ -43,7 +43,6 @@ class DailyReport extends ConsumerWidget {
               workedDuration =
                   DateTime.now().difference(inT) - Duration(minutes: breakMins);
             }
-            if (workedDuration == null) return _emptyState(context);
 
             final inOfficeTime = AppDateTime.formatDuration(
               workedDuration + Duration(minutes: breakMins),
