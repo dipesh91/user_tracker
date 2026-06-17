@@ -26,8 +26,6 @@ class DailyReport extends ConsumerWidget {
         .watch(dayStatusProvider(formattedDay))
         .when(
           data: (list) {
-            print('------------------>>>>>>>}}}}}}}}}');
-            print('------------------${list.first.toMap()}');
             final data = list.isEmpty ? null : list.first;
 
             final inT = AppDateTime.parseTime(data?.punchInAt);

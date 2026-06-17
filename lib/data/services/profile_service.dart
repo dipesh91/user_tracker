@@ -21,7 +21,7 @@ class ProfileService {
       final email = supabase.auth.currentUser?.email;
       await database.update({'token': token}).eq('email', email!).select();
     } on Exception catch (e) {
-      print('------------------------>>> $e');
+      throw Exception(e);
     }
   }
 

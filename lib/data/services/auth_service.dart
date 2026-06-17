@@ -32,7 +32,6 @@ class AuthService {
     try {
       await _auth.signInWithPassword(email: email, password: password);
     } on AuthApiException catch (e) {
-      print('---------------->>    $e');
       if (e.code == 'invalid_credentials') {
         message(context, 'Invalid Email or password');
       }

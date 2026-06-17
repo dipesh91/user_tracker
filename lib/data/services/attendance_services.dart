@@ -14,7 +14,6 @@ class AttendanceServices {
 
   Stream<List<AttendanceModel>> getDayStatusInfo({String? day}) {
     final fetchDate = day ?? _today;
-    print('--------> fetchDate: $fetchDate, userId: $_userId');
 
     return _supabase
         .from(AppString.attendanceTable)
@@ -22,11 +21,9 @@ class AttendanceServices {
         .eq('user_id', _userId)
         .order('created_at')
         .map((rows) {
-          print('--------> Total: ${rows.length} rows');
           final todayRows = rows
               .where((r) => r['work_date'] == fetchDate)
               .toList();
-          print('--------> FILTERED: ${todayRows.length}');
           return todayRows.map(AttendanceModel.fromJson).toList();
         });
   }

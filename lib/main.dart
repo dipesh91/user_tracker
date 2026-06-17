@@ -13,7 +13,7 @@ import 'package:user_tracker/providers/ui_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load();
+  await dotenv.load(fileName: 'assets/.env');
   await Supabase.initialize(
     url: dotenv.get('supabaseUrl'),
     anonKey: dotenv.get('supabaseAnonKey'),

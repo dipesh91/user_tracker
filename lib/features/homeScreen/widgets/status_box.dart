@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:user_tracker/core/consts/app_colors.dart';
 import 'package:user_tracker/core/consts/app_enums.dart';
+import 'package:user_tracker/core/consts/app_string.dart';
 import 'package:user_tracker/core/themes/app_box_decorations.dart';
 import 'package:user_tracker/core/widgets/current_status_details.dart';
 import 'package:user_tracker/core/widgets/show_break_picker.dart';
@@ -51,9 +52,7 @@ class StatusBox extends ConsumerWidget {
               context,
               punchInAt: data.punchInAt ?? '--:--',
               onPunchOut: () async {
-                if (DateTime.now().isAfter(
-                  DateTime.now().copyWith(hour: 18, minute: 0, second: 0),
-                )) {
+                if (DateTime.now().isAfter(AppString.officeOut)) {
                   await ref.read(attendanceProvider).punchOut();
                 } else {
                   _punchBeforeTimeDialog(context, ref);
